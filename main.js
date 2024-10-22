@@ -59,11 +59,16 @@ return a - b;
 
 // Part 2
 
-function slope(a1, a2, b1, b2) {
+function slope() {
 
-let actual_slope = delta(b1, b2) / delta(a1, a2);
+let x1 = Number(document.getElementById("x1").value);
+let x2 = Number(document.getElementById("x2").value);
+let y1 = Number(document.getElementById("y1").value);
+let y2 = Number(document.getElementById("y2").value);
+
+let actual_slope = delta(y1, y2) / delta(x1, x2);
 let rounded_slope = round_user(actual_slope);
-document.getElementById("output").textContent = `Slope: ${rounded_slope}`;
+document.getElementById("other_output").textContent = `Slope: ${rounded_slope}`;
 return actual_slope;
 
 }
@@ -82,11 +87,16 @@ return (a1 + a2) / 2;
 
 // Part 5
 
-function distance (x1, y1, x2, y2) {
+function distance () {
+
+let x1 = Number(document.getElementById("x1").value);
+let x2 = Number(document.getElementById("x2").value);
+let y1 = Number(document.getElementById("y1").value);
+let y2 = Number(document.getElementById("y2").value);
 
 let actual_distance = Math.sqrt(delta(x1, x2)**2 + delta(y1, y2)**2);
 let rounded_distance = round_user(actual_distance);
-document.getElementById("output").textContent = `Distance: ${rounded_distance}`;
+document.getElementById("other_output").textContent = `Distance: ${rounded_distance}`;
 return actual_distance;
 
 }
@@ -143,7 +153,7 @@ function sphere_volume() {
             
         }
 
-// Part 10
+// Part 10 ### Already Made
 
 // Part 11
 
