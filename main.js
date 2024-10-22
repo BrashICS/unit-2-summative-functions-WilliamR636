@@ -11,7 +11,12 @@
 /*** Event Listeners ***/
 document.getElementById("zeros").addEventListener("click", zeros);
 document.getElementById("vertex").addEventListener("click", vertex);
- 
+document.getElementById("rect_prism_volume").addEventListener("click", rect_prism_volume);
+document.getElementById("rect_prism_area").addEventListener("click", rect_prism_area);
+document.getElementById("sphere_volume").addEventListener("click", sphere_volume);
+document.getElementById("sphere_area").addEventListener("click", sphere_area);
+document.getElementById("slope").addEventListener("click", slope);
+document.getElementById("distance").addEventListener("click", distance);
 /*** Functions ***/
 
 // Round to the nearest `decimals` number of decimals
@@ -48,7 +53,7 @@ function vertex() {
 
 function delta(a, b) {
 
-return a - b
+return a - b;
 
 }
 
@@ -56,7 +61,10 @@ return a - b
 
 function slope(a1, a2, b1, b2) {
 
-return delta(b1, b2) / delta(a1, a2)
+let actual_slope = delta(b1, b2) / delta(a1, a2);
+let rounded_slope = round_user(actual_slope);
+document.getElementById("output").textContent = `Slope: ${rounded_slope}`;
+return actual_slope;
 
 }
 
@@ -64,7 +72,7 @@ return delta(b1, b2) / delta(a1, a2)
 
 function average(a1, a2) {
 
-return (a1 + a2) / 2
+return (a1 + a2) / 2;
 
 }
 
@@ -74,9 +82,12 @@ return (a1 + a2) / 2
 
 // Part 5
 
-function length (x1, y1, x2, y2) {
+function distance (x1, y1, x2, y2) {
 
-return Math.sqrt(delta(x1, x2)**2 + delta(y1, y2)**2)
+let actual_distance = Math.sqrt(delta(x1, x2)**2 + delta(y1, y2)**2);
+let rounded_distance = round_user(actual_distance);
+document.getElementById("output").textContent = `Distance: ${rounded_distance}`;
+return actual_distance;
 
 }
 
@@ -84,9 +95,53 @@ return Math.sqrt(delta(x1, x2)**2 + delta(y1, y2)**2)
 
 // Part 7
 
+function rect_prism_volume() {
+
+    let height = Number(document.getElementById("height").value);
+    let length = Number(document.getElementById("length").value);
+    let width = Number(document.getElementById("width").value);
+        
+    let volume = round_user(height * length * width);
+    document.getElementById("output").textContent = `Total Prism Volume: ${volume}`;
+    return volume;
+    
+}
+
 // Part 8
 
+function rect_prism_area() {
+
+    let height = Number(document.getElementById("height").value);
+    let length = Number(document.getElementById("length").value);
+    let width = Number(document.getElementById("width").value);
+        
+    let area = round_user(2 * ((height * length) + (length * width) + (width * height)));
+    document.getElementById("output").textContent = `Total Prism Area: ${area}`;
+    return area;
+        
+    }
+
 // Part 9
+
+function sphere_volume() {
+
+    let radius = Number(document.getElementById("radius").value);
+
+    let volume = round_user(4/3 * Math.PI * (radius ** 3));
+    document.getElementById("output").textContent = `Total Sphere Volume: ${volume}`;
+    return volume;
+        
+    }
+
+    function sphere_area() {
+
+    let radius = Number(document.getElementById("radius").value);
+            
+    let area = round_user(4 * Math.PI * (radius ** 2));
+    document.getElementById("output").textContent = `Total Sphere Area: ${area}`;
+    return area;
+            
+        }
 
 // Part 10
 
