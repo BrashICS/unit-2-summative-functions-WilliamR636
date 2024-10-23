@@ -17,6 +17,10 @@ document.getElementById("sphere_volume").addEventListener("click", sphere_volume
 document.getElementById("sphere_area").addEventListener("click", sphere_area);
 document.getElementById("slope").addEventListener("click", slope);
 document.getElementById("distance").addEventListener("click", distance);
+document.getElementById("midpoint").addEventListener("click", midpoint);
+document.getElementById("sin").addEventListener("click", sin);
+document.getElementById("cos").addEventListener("click", cos);
+document.getElementById("tan").addEventListener("click", tan);
 /*** Functions ***/
 
 // Round to the nearest `decimals` number of decimals
@@ -30,20 +34,6 @@ function round_user(value) {
     let d = Number(document.getElementById("rounding").value)
 
     return round(value, d)
-
-}
-
-// Calculate the y-value of a parabola from standand form
-function y_quad(a, b, c, x) {
-
-}
-
-// Determine the zeros of a quadratic using user-inputs for a, b, and c
-function zeros() {
-}
-
-// Determine the vertex of a quadratic using user-inputs for a, b, and c
-function vertex() {
 
 }
 
@@ -141,9 +131,9 @@ function sphere_volume() {
     document.getElementById("output").textContent = `Total Sphere Volume: ${volume}`;
     return volume;
         
-    }
+}
 
-    function sphere_area() {
+function sphere_area() {
 
     let radius = Number(document.getElementById("radius").value);
             
@@ -151,21 +141,93 @@ function sphere_volume() {
     document.getElementById("output").textContent = `Total Sphere Area: ${area}`;
     return area;
             
-        }
+}
 
 // Part 10 ### Already Made
 
-// Part 11
+// Part 11 ### Already Made
 
+// Part 12
 
+function midpoint() {
+
+let x1 = Number(document.getElementById("x1").value);
+let x2 = Number(document.getElementById("x2").value);
+let y1 = Number(document.getElementById("y1").value);
+let y2 = Number(document.getElementById("y2").value);
+
+let actual_midpoint_x = average(x1, x2);
+let actual_midpoint_y = average(y1, y2);
+let rounded_midpoint_x = round_user(actual_midpoint_x);
+let rounded_midpoint_y = round_user(actual_midpoint_y);
+document.getElementById("other_output").textContent = `Midpoint: ${rounded_midpoint_x}, ${rounded_midpoint_y}`;
+return `X: ${actual_midpoint_x} Y: ${actual_midpoint_y}`;
+
+}
 
 ////// SECOND PART
 
 // Part 1
 
+function y_quad(a, b, c, x) {
+
+return `Y = ${a*(x**2) + b * x + c}`;
+
+}
+
+// Part 2
+
+function zeros() {
+
+    let a = Number(document.getElementById("a").value);
+    let b = Number(document.getElementById("b").value);
+    let c = Number(document.getElementById("c").value);
+    
+    let actual_z1 = (-b + Math.sqrt(b**2 - (4 * a * c))) / 2 * a;
+    let actual_z2 = (-b - Math.sqrt(b**2 - (4 * a * c))) / 2 * a;
+    let rounded_z1 = round_user(actual_z1);
+    let rounded_z2 = round_user(actual_z2);
+    document.getElementById("quadratic_output").textContent = `Zeros: ${rounded_z1}, ${rounded_z2}`;
+    return `Zeros: (${actual_z1}, 0), (${actual_z2}, 0)`;
+
+}
+
+// Part 3
+
+function vertex() {
+
+    let a = Number(document.getElementById("a").value);
+    let b = Number(document.getElementById("b").value);
+    let c = Number(document.getElementById("c").value);
+    
+    let x = -b / (2 * a)
+    let actual_vertex = a * (x**2) + b*x + c;
+    let rounded_vertex = round_user(actual_vertex);
+    document.getElementById("quadratic_output").textContent = `Vertex: ${rounded_vertex}`;
+    return `Vertex: (${actual_vertex}`;
+
+}
+
+////// BONUS ROUND!
+
+function sin() {
+
+let degrees = degrees * (180/Math.PI);
 
 
-////// LAST PART
+}
 
-// Part 1
+function cos() {
+
+let degrees = degrees * (180/Math.PI);
+    
+}
+
+    
+function tan() {
+
+let degrees = degrees * (180/Math.PI);
+        
+}
+        
 
