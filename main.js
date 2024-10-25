@@ -212,22 +212,44 @@ function vertex() {
 
 function sin() {
 
-let degrees = degrees * (180/Math.PI);
+    let degrees = Number(document.getElementById("degrees").value);
 
+    let actual_degrees = Math.sin(degrees * (Math.PI/180));
+    let rounded_degrees = round_user(actual_degrees);
+    document.getElementById("general_output").textContent = `Degrees: ${rounded_degrees}`;
+    return `Degrees: (${actual_degrees}`;
 
 }
 
 function cos() {
 
-let degrees = degrees * (180/Math.PI);
+let degrees = Number(document.getElementById("degrees").value);
+
+let actual_degrees = Math.cos(degrees * (Math.PI/180));
+let rounded_degrees = round_user(actual_degrees);
+document.getElementById("general_output").textContent = `Degrees: ${rounded_degrees}`;
+return `Degrees: (${actual_degrees}`;
+
     
 }
 
     
 function tan() {
 
-let degrees = degrees * (180/Math.PI);
-        
+    let degrees = Number(document.getElementById("degrees").value);
+
+    let actual_degrees = Math.tan(degrees * (Math.PI/180));
+    let rounded_degrees = round_user(actual_degrees);
+
+    if (actual_degrees > 1000000000) {
+        document.getElementById("general_output").textContent = `Degrees: Undefined`;
+        return `Degrees: Undefined`;
+    }
+
+    else {
+        document.getElementById("general_output").textContent = `Degrees: ${rounded_degrees}`;
+        return `Degrees: (${actual_degrees}`;
+    }
 }
         
 
